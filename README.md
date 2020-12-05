@@ -34,28 +34,28 @@ ErrorClosure is the same as SuccessClosure but used with class that inherit or i
 		}
 	}
 ```
-- **Then this how we can use those methods after**
+- **Then this is how we can use those methods after**
 ``` Java
 //Using Void, Success and Error Closure
-		executeClosure(
-				() -> {
-					System.out.println("I'm executed before everyone else");
-				},
-				"Natolotra",
-				(success) -> {
-					System.out.println(((DefaultSuccess) success).getDescription());
-				},
-				(error) -> {
-					System.out.println(((DefaultError) error).getDescription());
-				});
+	executeClosure(
+			() -> {
+				System.out.println("I'm executed before everyone else");
+			},
+			"Natolotra",
+			(success) -> {
+				System.out.println(((DefaultSuccess) success).getDescription());
+			},
+			(error) -> {
+				System.out.println(((DefaultError) error).getDescription());
+			});
 ```
 
 ``` Java
 //Using Typed Closure
-		executeClosure(
-				"Natolotra",
-				(param) -> {
-					System.out.println(param);
-				});
+	executeClosure(
+			"Natolotra",
+			(param) -> {
+				System.out.println(param);
+			});
 ```
 
