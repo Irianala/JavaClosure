@@ -30,7 +30,7 @@ ErrorClosure is the same as SuccessClosure but used with class that inherit or i
 		if (arg.equals("Natolotra")) {
 			success.execureSuccessStatement(new DefaultSuccess("yay, this works"));
 		} else {
-			failure.executeErrorStatement(new DefaultError("awww, error occurs"));
+			failure.executeErrorStatement(new DefaultError("awww, error occurred"));
 		}
 	}
 ```
