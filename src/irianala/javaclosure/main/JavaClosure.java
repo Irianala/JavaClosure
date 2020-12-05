@@ -12,16 +12,27 @@ import irianala.javaclosure.protocol.closure.VoidClosure;
 public class JavaClosure {
 
 	public static void main(String[] args) {
-		executeClosure(() -> {
-			System.out.println("I'm executed before everyone else");
-		},
-		"Natolotra",
-		(success) -> {
-			System.out.println(((DefaultSuccess) success).getDescription());
-		},
-		(error) -> {
-			System.out.println(((DefaultError) error).getDescription());
-		});
+		//Using Void, Success and Error Closure
+		executeClosure(
+				
+				() -> {
+					System.out.println("I'm executed before everyone else");
+				},
+				"Natolotra",
+				(success) -> {
+					System.out.println(((DefaultSuccess) success).getDescription());
+				},
+				(error) -> {
+					System.out.println(((DefaultError) error).getDescription());
+				});
+		
+		//Using Typed Closure
+		executeClosure(
+				
+				"Natolotra",
+				(param) -> {
+					System.out.println(param);
+				});
 	}
 	
 	public static void executeClosure(String arg, TypedClosure<String> closure) {
@@ -31,7 +42,7 @@ public class JavaClosure {
 	public static void executeClosure(VoidClosure before, String arg, SuccessClosure<SuccessEvent> success, ErrorClosure<ErrorEvent> failure) {
 		before.executeVoidStatement();
 		
-		if (arg.equals("Natolotraa")) {
+		if (arg.equals("Natolotra")) {
 			success.execureSuccessStatement(new DefaultSuccess("yay, this works"));
 		} else {
 			failure.executeErrorStatement(new DefaultError("awww, error occurs"));
