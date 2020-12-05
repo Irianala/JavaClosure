@@ -1,2 +1,2 @@
 # JavaClosure
-JavaClosure is an implementation of Swift Closure with Java
+JavaClosure is an implementation of Swift Closure with Java 
